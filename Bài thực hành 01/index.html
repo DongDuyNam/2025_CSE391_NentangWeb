@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BÀI TẬP 03:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2" colspan="2">Student</th>
+                <th colspan="4">Exam</th>
+                <th colspan="4">2nd Exam</th>
+                <th rowspan ="2" colspan="2">Final Grade</th>
+            </tr>
+            <tr>
+                <th >Q1</th>
+                <th >Q2</th>
+                <th >Q3</th>
+                <th rowspan="2">Grade</th>
+                <th >Q4</th>
+                <th >Q5</th>
+                <th >Q6</th>
+                <th rowspan="2">Grade</th>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <td>8</td>
+                <td>7</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <th>NR</th>
+                <th>R</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>80549061</td>
+                <td>John</td>
+                <td>70%</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td>17.6</td>
+                <td colspan="4"></td>
+                <td>17.6</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>80549062</td>
+                <td>Mary</td>
+                <td>10%</td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>6.8</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td>50%</td>
+                <td>16.5</td>
+                <td>16.5</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>80549063</td>
+                <td>Claire</td>
+                <td colspan="4"></td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>50%</td>
+                <td>10.0</td>
+                <td>10.0</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>BÀI TẬP 04: </h1>
+    <div class="container">
+        <div class="head-form">
+            <p>Basic Info</p>
+        </div>
+        <div class="container-form-group">
+            <div class="form-group">
+                <label for="EmployeeId">Employee ID </label>
+                <input type="text" name="EmployeeId" id="EmployeeId" value="9" readonly style="border: none;">
+            </div>
+            <div class="form-group">
+                <label for="LastName">Last Name </label>
+                <input type="text" name="LastName" id="LastName" value="Dodsworth" readonly style="border: none">
+            </div>
+            <div class="form-group">
+                <label for="FirstName">First Name </label>
+                <input type="text" name="FirstName" id="FirstName" required >
+            </div>
+            <div class="form-group">
+                <label for="FirstName">Gender </label>
+                <div class="radio-gender">
+                    <label for=""><input type="radio" name="name" id="GenderMale" > Male</label>
+                    <label for=""><input type="radio" name="name" id="GenderFemale" > Female</label>
+                    <label for=""><input type="radio" name="name" id="GenderXXX" > XXX</label>
+                    <label for=""><input type="radio" name="name" id="GenderZZZ" > ZZZ</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" name="Title" id="Title" required>
+            </div>
+            <div class="form-group">
+                <label for="Suffix">Suffix</label>
+                <input type="Suffix" name="Suffix" id="Suffix" required>
+            </div>
+            <div class="form-group">
+                <label for="BirthDate">BirthDate</label>
+                <input type="datetime-local" name="BirthDate" id="BirthDate" required>
+            </div>
+            <div class="form-group">
+                <label for="HireDate">HireDate</label>
+                <input type="datetime-local" name="HireDate" id="HireDate" required>
+            </div>
+            <div class="form-group">
+                <label for="SSN">SSN # (if applicable)</label>
+                <input type="text" name="SSN" id="SSN">
+            </div>
+            <div class="form-group">
+                <label for="ReportsTo">Reports To</label>
+                <select name="ReportsTo" id="ReportsTo">
+                    <option value="Buchanan">Buchanan</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="head-form">
+                <p>Contact Infor</p>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" name="Email" id="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input type="text" name="Address" id="Address" required>
+            </div>
+            <div class="form-group">
+                <label for="City">City</label>
+                <input type="text" name="City" id="City" required>
+            </div>
+            <div class="form-group">
+                <label for="Region">Region</label>
+                <input type="text" name="Region" id="Region" required>
+            </div>
+            <div class="form-group">
+                <label for="PostalCode">Postal Code</label>
+                <input type="text" name="PostalCode" id="PostalCode" required>
+            </div>
+            <div class="form-group">
+                <label for="Country">Country</label>
+                <select name="Country" id="Country">
+                    <option value="Russian Federation">Russian Federation</option>
+                    <option value="America">America</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="UsHomeNumber">US Home Number</label>
+                <input type="number" name="UsHomeNumber" id="UsHomeNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="Photo">Photo</label>
+                <input type="bmg" name="Photo" id="Photo">
+            </div>
+            <div class="head-form">
+                <p>Optional Info</p>
+            </div>
+            <div class="form-group">
+                <label for="Notes">Notes</label>
+                <textarea name="Notes" id="Notes"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Preferred Shift</label>
+                <div class="radio-group preferred-shift-group"> 
+                    <label><input type="radio" name="preferred_shift" value="Regular"> Regular</label>
+                    <label><input type="radio" name="preferred_shift" value="Gravy Yard" checked> Gravy Yard</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Active">Active?</label>
+                <input type="checkbox" name="Active" id="Active">
+            </div>
+            <div class="form-group">
+                <label for="">Are you human?</label>
+                <div>
+                    <h3>TIDAWO</h3>
+                    <span class="click-to-change">Click to change</span>
+                    <input type="text" class="captcha-input">
+                </div>
+            </div>
+            <div style="border-top: 1px solid black">
+                <div class="action-form"style="padding: 5px 5px 5px 5px;">
+                    <div>
+                        <button type="button" style="background-color: black; color:White;"><</button>
+                        <button type="button" style="background-color: black; color:White;">></button>
+                    </div>
+                    <div>
+                        <button type="button" style="background-color: black; color:White;">Submit</button>
+                        <button type="button" style="background-color: black; color:White;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

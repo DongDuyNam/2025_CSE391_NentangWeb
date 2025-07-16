@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+/* KIỂU DÁNG CHO FORM */
+.container{
+    text-align: center;
+    border: #000000 solid 1px;
+    width: 50%;
+    max-width: 400px;
+    margin: auto;
+}
+.container h2{
+    text-align: center;
+}
+.container #addStudentform{
+    margin: 0 20px 0px 20px;
+    text-align: left;
+}
+/* Điều chỉnh các dòng trong form */
+#addStudentform .form-group{
+    margin-bottom: 20px !important; 
+}
+#addStudentform #add-btn-in-form{
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+/* Kiểu dáng chung cho bảng */
+table {
+    width: 80%; 
+    margin: 0 auto; 
+    border-collapse: collapse;
+    border: 1px solid #000000; 
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 8px 12px; /* Khoảng cách bên trong ô */
+    text-align: left; /* Căn lề trái mặc định */
+}
+
+/* Kiểu dáng cho tiêu đề bảng (header) */
+thead th {
+    color: #000000; /* Chữ màu xám đậm */
+    font-weight: bold; /* Chữ đậm */
+    text-align: center;
+}
+

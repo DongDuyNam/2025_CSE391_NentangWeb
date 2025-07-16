@@ -1,0 +1,109 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <!-- <div class="nav-bar">
+            <h1>Quản lý sinh viên</h1>
+            <button class="addStudentbtn">Thêm sinh viên</button>
+        </div> -->
+        <div class="container">
+            <div id="addStudentform">
+                <h2>Thêm Sinh Viên Mới</h2>
+                <form action="">
+                    <div class="form-group">
+                        <label for="maSV">Mã sinh viên:</label>
+                        <input type="text" name="maSV" id="maSV" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hoTen">Họ và tên:</label>
+                        <input type="text" name="hoTen" id="hoTen" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngaySinh">Ngày Sinh:</label>
+                        <input type="date" name="ngaySinh" id="ngaySinh">
+                    </div>
+                    <div class="form-group">
+                        <label for="gioiTinh">Giới Tính:</label>
+                        <label for="">Nam</label>
+                        <input type="radio" name="gioiTinh" id="nam" value="Nam">
+                        <label for="">Nữ</label>
+                        <input type="radio" name="gioiTinh" id="nu" value="Nữ">
+                    </div>
+                    <div class="form-group">
+                        <label for="ghiChu">Ghi chú:</label>
+                        <textarea name="ghiChu" id="ghiChu"></textarea>
+                    </div>
+                    <div id="add-btn-in-form">
+                        <button>Thêm sinh viên</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h1>Danh Sách Sinh Viên</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã SV</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>111</td>
+                        <td>Le Van A</td>
+                        <td>A@gmail.com</td>
+                        <td>11/11/2002</td>
+                        <td>Nam</td>
+                        <td>HS Khá</td>
+                        <td>
+                            <a href="#" class="edit">Sửa</a>
+                            <a href="#" class="delete">Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>222</td>
+                        <td>Nguyen Thi B</td>
+                        <td>B@gmail.com</td>
+                        <td>12/12/2002</td>
+                        <td>Nữ</td>
+                        <td>HS xuất sắc</td>
+                        <td>
+                            <a href="#" class="edit">Sửa</a>
+                            <a href="#" class="delete">Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>333</td>
+                        <td>Nguyễn Văn C</td>
+                        <td>C@gmail.com</td>
+                        <td>12/01/2002</td>
+                        <td>Nam</td>
+                        <td>HS Kém</td>
+                        <td>
+                            <a href="#" class="edit">Sửa</a>
+                            <a href="#" class="delete">Xóa</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </body>
+    </html>
