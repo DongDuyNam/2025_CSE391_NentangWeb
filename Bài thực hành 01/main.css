@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    border-collapse: collapse; /* Đây là dòng quan trọng */
+    border-collapse: collapse;
     font-family: Arial, sans-serif;
     font-size: 14px;
 }

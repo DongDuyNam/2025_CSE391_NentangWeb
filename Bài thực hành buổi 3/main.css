@@ -16,6 +16,11 @@ h1 {
 }
 .container h2{
     text-align: center;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    
+    
 }
 .container #addStudentform{
     margin: 0 20px 0px 20px;
@@ -24,10 +29,25 @@ h1 {
 /* Điều chỉnh các dòng trong form */
 #addStudentform .form-group{
     margin-bottom: 20px !important; 
+    display: flex;
+    align-items: center;
 }
+
+.form-group label{
+    flex: 0 0 120px;
+}
+
 #addStudentform #add-btn-in-form{
     text-align: right;
     margin-bottom: 20px;
+}
+#add-btn-in-form button{
+    height: 40px;
+}
+#add-btn-in-form button:hover{
+    background-color: black;
+    color: white;
+    text-decoration-line: underline;
 }
 
 /* Kiểu dáng chung cho bảng */
@@ -37,16 +57,24 @@ table {
     border-collapse: collapse;
     border: 1px solid #000000; 
 }
-
+thead{
+    background-color: rgb(35, 35, 159);
+    color: white;
+}
 th, td {
-    border: 1px solid #000000;
-    padding: 8px 12px; /* Khoảng cách bên trong ô */
-    text-align: left; /* Căn lề trái mặc định */
+    border: 2px solid #000000;
+    padding: 8px 12px; 
+    text-align: left;
+}
+th, td:hover {
+    text-decoration: underline;
 }
 
 /* Kiểu dáng cho tiêu đề bảng (header) */
 thead th {
-    color: #000000; /* Chữ màu xám đậm */
-    font-weight: bold; /* Chữ đậm */
+    color: white; 
+    font-weight: bold; 
     text-align: center;
 }
+
+
