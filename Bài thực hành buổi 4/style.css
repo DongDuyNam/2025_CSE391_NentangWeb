@@ -1,0 +1,89 @@
+.nav-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: rgb(15, 55, 91);
+}
+.nav-bar div h2{
+    text-align: center; 
+    color:white; 
+    margin-left: 30px;
+}
+
+.nav-bar div { /* Chọn div chứa các nút */
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar div button{
+    padding: 10px;
+    margin-right: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+#Delete-btn{
+    background-color: red;
+}
+#Delete-btn:hover{
+    background-color: rgb(30, 9, 115);
+}
+#Add-btn{
+    background-color: green;
+}
+#Add-btn:hover{
+    background-color: rgb(2, 68, 2);
+}
+.content{
+    text-align: center;
+    width: max-content;
+}
+table {
+    width: 90%;
+    max-width: 1600px;
+    border-collapse: collapse;
+    border: none;
+    margin: auto;
+}
+
+th,td{
+    border-top: 1px solid rgb(183, 178, 178);
+    padding: 20px;
+    text-align: center;
+}
+
+.table-body:hover{
+    background-color: rgb(175, 175, 175);
+}
+
+.page-end{
+    width: 90%;
+    max-width: 1600px;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.container-page-btn{
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.disable-btn{
+    border: none; 
+    background-color: white;
+}
+.disable-btn:hover{
+    text-decoration: underline;
+}
+.pagenumber-btn{
+    border: none;
+    background-color: white;
+}
+.pagenumber-btn:hover{
+    border: 1px solid black ;
+    background-color: rgb(31, 31, 113);
+    color: white;
+}
