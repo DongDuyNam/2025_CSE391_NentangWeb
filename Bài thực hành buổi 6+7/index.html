@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div>
+            <h2>Manage Employee</h2>
+        </div>
+        <div>
+            <button type="button" id="Delete-btn">Delete</button>
+            <button type="button" id="Add-btn">Add New Employee</button>
+        </div>
+    </div>
+    <div class="content" style="width: 100%; margin: 20px;">
+        <table id="employeeDataTable">
+            <thead>
+                <tr class="table-head">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-body">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdad</td>
+                    <td>
+                        <button type="button">Sửa</button>
+                        <button type="button">Xóa</button>
+                    </td>
+                </tr>
+                <tr class="table-body">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdad</td>
+                    <td>
+                        <button type="button">Sửa</button>
+                        <button type="button">Xóa</button>
+                    </td>
+                </tr>
+                <tr class="table-body">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdad</td>
+                    <td>
+                        <button type="button">Sửa</button>
+                        <button type="button">Xóa</button>
+                    </td>
+                </tr>
+                <tr class="table-body">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdad</td>
+                    <td>
+                        <button type="button">Sửa</button>
+                        <button type="button">Xóa</button>
+                    </td>
+                </tr>
+                <tr class="table-body">
+                    <th><input type="checkbox" name="" id=""></th>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdasd</td>
+                    <td>asdasdad</td>
+                    <td>
+                        <button type="button">Sửa</button>
+                        <button type="button">Xóa</button>
+                    </td>
+                </tr>   
+            </tbody>
+        </table>
+    </div>
+    <div class="page-end">
+        <div style="color: rgb(104, 108, 112);">
+            <p>Showing 5 out of 25 entries</p>
+        </div>
+        <div class="container-page-btn">
+            <div class="page-btn">
+                <button disabled="disabled" class="disable-btn">Previous</button>
+                <button type="button" class="pagenumber-btn">1</button>
+                <button type="button" class="pagenumber-btn">2</button>
+                <button type="button" class="pagenumber-btn">3</button>
+                <button type="button" class="pagenumber-btn">4</button>
+                <button type="button" class="pagenumber-btn">5</button>
+                <button disabled="disabled" class="disable-btn">Next</button>
+            </div>
+        </div>
+    </div>
+    <h1>Thêm Nhân Viên</h1>
+    <form id="emForm">
+        <h2>Thêm Nhân Viên Mới</h2>
+        <div id="thongbao"></div>
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" id="emName" required>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" id="emEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="Address">Address</label>
+            <input type="text" id="emAddress" required>
+        </div>
+        <div class="form-group">
+            <label for="Phone">Phone</label>
+            <input type="tel" id="emPhone" required>
+        </div>
+
+        <button type="submit">Thêm</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
