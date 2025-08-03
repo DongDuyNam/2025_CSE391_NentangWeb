@@ -18,7 +18,6 @@ const detailNhanvien = document.getElementById("detailNhanvien");
 const detailSotien = document.getElementById("detailSotien");
 const detailNgaymua = document.getElementById("detailNgaymua");
 
-
 const transactionTableBody = document.querySelector(".transaction-table tbody");
 const transactionTable = document.querySelector(".transaction-table");
 
@@ -27,6 +26,7 @@ const khachhangInput = document.getElementById("khachhang");
 const nhanvienInput = document.getElementById("nhanvien");
 const sotienInput = document.getElementById("sotien");
 
+// Khai báo các phần tử error message
 const khachhangError = document.getElementById("error-khachhang");
 const nhanvienError = document.getElementById("error-nhanvien");
 const sotienError = document.getElementById("error-sotien");
@@ -59,8 +59,80 @@ function renderTransactions() {
     });
 }
 
-// Gọi hàm render ngay lập tức khi script được tải
-renderTransactions();
+// Hàm hiển thị lỗi
+function showFieldError(input, message, errorElement) {
+    errorElement.textContent = message;
+    errorElement.classList.remove('hidden');
+    input.classList.add('error-input');
+}
+
+// Hàm xóa lỗi
+function clearFieldError(input, errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.add('hidden');
+    input.classList.remove('error-input');
+}
+
+// Hàm xác thực dữ liệu
+function validateForm() {
+    let isValid = true;
+    
+    // Xóa lỗi cũ
+    clearFieldError(khachhangInput, khachhangError);
+    clearFieldError(nhanvienInput, nhanvienError);
+    clearFieldError(sotienInput, sotienError);
+
+    const khachhangValue = khachhangInput.value.trim();
+    const nhanvienValue = nhanvienInput.value.trim();
+    const sotienValue = sotienInput.value.trim();
+
+    // Hàm validate tên (chỉ chấp nhận chữ và khoảng trắng)
+    const validateName = (name) => {
+        const re = /^[a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$/;
+        return re.test(String(name));
+    };
+
+    // Hàm validate số tiền (là số và lớn hơn 0)
+    const validateAmount = (amount) => {
+        const floatAmount = parseFloat(amount);
+        return !isNaN(floatAmount) && floatAmount > 0;
+    };
+
+    // Kiểm tra Khách hàng
+    if (khachhangValue === '') {
+        showFieldError(khachhangInput, 'Tên khách hàng không được để trống.', khachhangError);
+        isValid = false;
+    } else if (!validateName(khachhangValue)) {
+        showFieldError(khachhangInput, 'Tên khách hàng không được chứa số hoặc ký tự đặc biệt.', khachhangError);
+        isValid = false;
+    } else if (khachhangValue.length > 30) {
+        showFieldError(khachhangInput, 'Tên khách hàng không được quá 30 ký tự.', khachhangError);
+        isValid = false;
+    }
+
+    // Kiểm tra Nhân viên
+    if (nhanvienValue === '') {
+        showFieldError(nhanvienInput, 'Tên nhân viên không được để trống.', nhanvienError);
+        isValid = false;
+    } else if (!validateName(nhanvienValue)) {
+        showFieldError(nhanvienInput, 'Tên nhân viên không được chứa số hoặc ký tự đặc biệt.', nhanvienError);
+        isValid = false;
+    } else if (nhanvienValue.length > 30) {
+        showFieldError(nhanvienInput, 'Tên nhân viên không được quá 30 ký tự.', nhanvienError);
+        isValid = false;
+    }
+    
+    // Kiểm tra Số tiền
+    if (sotienValue === '') {
+        showFieldError(sotienInput, 'Số tiền không được để trống.', sotienError);
+        isValid = false;
+    } else if (!validateAmount(sotienValue)) {
+        showFieldError(sotienInput, 'Số tiền không hợp lệ (phải là số và lớn hơn 0).', sotienError);
+        isValid = false;
+    }
+
+    return isValid;
+}
 
 // Xử lý sự kiện mở/đóng modal Thêm/Sửa
 openModalBtn.addEventListener('click', () => {
@@ -69,6 +141,11 @@ openModalBtn.addEventListener('click', () => {
     document.querySelector('#addTransactionModal .modal-header h2').textContent = 'Thêm giao dịch';
     document.getElementById('addBtn').textContent = 'Thêm';
     addModal.style.display = "block";
+    
+    // Xóa lỗi khi mở form mới
+    clearFieldError(khachhangInput, khachhangError);
+    clearFieldError(nhanvienInput, nhanvienError);
+    clearFieldError(sotienInput, sotienError);
 });
 
 closeModalBtn.addEventListener('click', () => {
@@ -97,44 +174,6 @@ window.addEventListener('click', (event) => {
         detailModal.style.display = "none";
     }
 });
-
-// Hàm xác thực dữ liệu
-function validateForm() {
-    let isValid = true;
-    khachhangError.textContent = '';
-    nhanvienError.textContent = '';
-    sotienError.textContent = '';
-
-    const khachhangValue = khachhangInput.value.trim();
-    const nhanvienValue = nhanvienInput.value.trim();
-    const sotienValue = sotienInput.value.trim();
-
-    if (khachhangValue === '') {
-        khachhangError.textContent = 'Tên khách hàng không được để trống.';
-        isValid = false;
-    } else if (khachhangValue.length > 30) {
-        khachhangError.textContent = 'Tên khách hàng không được quá 30 ký tự.';
-        isValid = false;
-    }
-
-    if (nhanvienValue === '') {
-        nhanvienError.textContent = 'Tên nhân viên không được để trống.';
-        isValid = false;
-    } else if (nhanvienValue.length > 30) {
-        nhanvienError.textContent = 'Tên nhân viên không được quá 30 ký tự.';
-        isValid = false;
-    }
-    
-    if (sotienValue === '') {
-        sotienError.textContent = 'Số tiền không được để trống.';
-        isValid = false;
-    } else if (isNaN(sotienValue) || parseFloat(sotienValue) < 0) {
-        sotienError.textContent = 'Số tiền không hợp lệ.';
-        isValid = false;
-    }
-
-    return isValid;
-}
 
 // Xử lý sự kiện khi nhấn nút "Thêm" hoặc "Sửa" trong form
 form.addEventListener('submit', (e) => {
@@ -200,6 +239,11 @@ transactionTableBody.addEventListener('click', (e) => {
         document.querySelector('#addTransactionModal .modal-header h2').textContent = 'Sửa giao dịch';
         document.getElementById('addBtn').textContent = 'Lưu';
 
+        // Xóa lỗi khi mở form sửa
+        clearFieldError(khachhangInput, khachhangError);
+        clearFieldError(nhanvienInput, nhanvienError);
+        clearFieldError(sotienInput, sotienError);
+
         addModal.style.display = "block";
     } else if (target.classList.contains('view-btn')) {
         // Chức năng XEM CHI TIẾT
@@ -212,3 +256,6 @@ transactionTableBody.addEventListener('click', (e) => {
         detailModal.style.display = "block";
     }
 });
+
+// Gọi hàm render ngay lập tức khi script được tải
+renderTransactions();
