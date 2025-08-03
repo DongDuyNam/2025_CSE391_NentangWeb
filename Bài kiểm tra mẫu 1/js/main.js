@@ -1,19 +1,13 @@
 $(document).ready(function() {
-
-    // --- KHỞI TẠO DỮ LIỆU BAN ĐẦU ---
-    
-    // Sử dụng dữ liệu mẫu từ data.js hoặc dữ liệu đã lưu trong Local Storage
     let employees = JSON.parse(localStorage.getItem('employees')) || employeesData;
     const itemsPerPage = 10;
     let currentPage = 1;
-    let isEditing = false; // Biến trạng thái để xác định chế độ Thêm/Sửa
+    let isEditing = false; 
 
-    // Lưu dữ liệu vào Local Storage
+
     function saveEmployees() {
         localStorage.setItem('employees', JSON.stringify(employees));
     }
-
-    // --- CÁC HÀM TIỆN ÍCH CHO GIAO DIỆN VÀ DỮ LIỆU ---
 
     function showFieldError(input, message) {
         const parent = input.closest('.form-group');
@@ -32,8 +26,6 @@ $(document).ready(function() {
         notification.html(message).removeClass('hidden error success').addClass(type);
     }
     
-    // --- CÁC HÀM VALIDATION CHO FORM ---
-
     function validateName(name) {
         const re = /^[a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]+$/;
         return re.test(String(name));
@@ -49,7 +41,6 @@ $(document).ready(function() {
         return re.test(String(phone));
     }
 
-    // Hàm render bảng nhân viên
     function renderTable(data) {
         const tableBody = $('#employeeTableBody');
         tableBody.empty();
@@ -91,7 +82,6 @@ $(document).ready(function() {
         updateDeleteButtonState();
     }
 
-    // Hàm render các nút phân trang
     function renderPagination(totalItems) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
         const paginationButtons = $('#paginationButtons');
@@ -110,7 +100,6 @@ $(document).ready(function() {
         }
     }
 
-    // Cập nhật thông tin phân trang
     function updatePaginationInfo(totalItems) {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
@@ -118,9 +107,6 @@ $(document).ready(function() {
         $('#showingEntriesText').text(`Showing ${showingText} out of ${totalItems} entries`);
     }
 
-    // --- CÁC SỰ KIỆN XỬ LÝ GIAO DIỆN VÀ CHỨC NĂNG ---
-
-    // Mở Modal (Thêm mới)
     $('#Add-btn').on('click', function() {
         isEditing = false;
         $('#modalTitle').text('Thêm sinh viên');
@@ -133,24 +119,20 @@ $(document).ready(function() {
         $('#emForm input').removeClass('error-input');
     });
 
-    // Đóng Modal
     $('.close-button').on('click', function() {
         $('#employeeModal').hide();
     });
 
-    // Đóng Modal khi click ra ngoài
     $(window).on('click', function(event) {
         if ($(event.target).is('#employeeModal')) {
             $('#employeeModal').hide();
         }
     });
 
-    // Xử lý khi người dùng gõ vào các trường input
     $('#emForm input').on('input', function() {
         clearFieldError($(this));
     });
 
-    // Xử lý sự kiện khi submit form
     $('#emForm').submit(function(event) {
         event.preventDefault();
 
@@ -170,7 +152,6 @@ $(document).ready(function() {
         const emAddress = emAddressInput.val().trim();
         const emPhone = emPhoneInput.val().trim();
 
-        // Kiểm tra Tên
         if (emName === '') {
             isValid = false;
             showFieldError(emNameInput, 'Tên sinh viên không được để trống.');
@@ -179,7 +160,6 @@ $(document).ready(function() {
             showFieldError(emNameInput, 'Tên không được chứa số hoặc ký tự đặc biệt.');
         }
 
-        // Kiểm tra Email
         if (emEmail === '') {
             isValid = false;
             showFieldError(emEmailInput, 'Email không được để trống.');
@@ -188,13 +168,11 @@ $(document).ready(function() {
             showFieldError(emEmailInput, 'Địa chỉ email không hợp lệ.');
         }
 
-        // Kiểm tra Địa chỉ
         if (emAddress === '') {
             isValid = false;
             showFieldError(emAddressInput, 'Địa chỉ không được để trống.');
         }
 
-        // Kiểm tra Số điện thoại
         if (emPhone === '') {
             isValid = false;
             showFieldError(emPhoneInput, 'Số điện thoại không được để trống.');
@@ -206,7 +184,6 @@ $(document).ready(function() {
         if (isValid) {
             const employeeId = $('#emId').val();
             if (employeeId) {
-                // Chỉnh sửa nhân viên hiện có
                 const employeeIndex = employees.findIndex(emp => emp.id == employeeId);
                 if (employeeIndex !== -1) {
                     employees[employeeIndex] = {
@@ -219,7 +196,6 @@ $(document).ready(function() {
                     showNotification('Chỉnh sửa nhân viên thành công!', 'success');
                 }
             } else {
-                // Thêm nhân viên mới
                 const newId = employees.length ? Math.max(...employees.map(emp => emp.id)) + 1 : 1;
                 const newEmployee = {
                     id: newId,
@@ -240,7 +216,6 @@ $(document).ready(function() {
         }
     });
     
-    // Xử lý sự kiện click nút Sửa
     $('#employeeTableBody').on('click', '.edit-btn', function() {
         isEditing = true;
         const employeeId = $(this).data('id');
@@ -263,7 +238,6 @@ $(document).ready(function() {
         }
     });
 
-    // Xử lý sự kiện click nút Xóa trên từng hàng
     $('#employeeTableBody').on('click', '.delete-btn-row', function() {
         const employeeId = $(this).data('id');
         if (confirm('Bạn có chắc chắn muốn xóa nhân viên này?')) {
@@ -274,18 +248,15 @@ $(document).ready(function() {
         }
     });
 
-    // Xử lý sự kiện checkbox "Chọn tất cả"
     $('#selectAllCheckbox').on('change', function() {
         $('.employee-checkbox').prop('checked', this.checked);
         updateDeleteButtonState();
     });
 
-    // Xử lý sự kiện checkbox của từng hàng
     $('#employeeTableBody').on('change', '.employee-checkbox', function() {
         updateDeleteButtonState();
     });
 
-    // Cập nhật trạng thái nút xóa
     function updateDeleteButtonState() {
         const checkedCount = $('.employee-checkbox:checked').length;
         if (checkedCount > 0) {
@@ -295,7 +266,6 @@ $(document).ready(function() {
         }
     }
 
-    // Xóa nhiều nhân viên cùng lúc
     $('#Delete-btn').on('click', function() {
         const selectedIds = $('.employee-checkbox:checked').map(function() {
             return $(this).data('id');
@@ -312,6 +282,5 @@ $(document).ready(function() {
         }
     });
     
-    // Khởi tạo ứng dụng
     renderTable(employees);
 });

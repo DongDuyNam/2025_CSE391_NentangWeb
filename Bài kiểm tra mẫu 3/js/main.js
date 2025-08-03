@@ -78,6 +78,7 @@ function validateForm() {
         return re.test(String(name));
     };
 
+
     const validateAmount = (amount) => {
         const floatAmount = parseFloat(amount);
         return !isNaN(floatAmount) && floatAmount > 0;
@@ -89,8 +90,8 @@ function validateForm() {
     } else if (!validateName(khachhangValue)) {
         showFieldError(khachhangInput, 'Tên khách hàng không được chứa số hoặc ký tự đặc biệt.', khachhangError);
         isValid = false;
-    } else if (khachhangValue.length > 30) {
-        showFieldError(khachhangInput, 'Tên khách hàng không được quá 30 ký tự.', khachhangError);
+    } else if (khachhangValue.length > 20) {
+        showFieldError(khachhangInput, 'Tên khách hàng không được quá 20 ký tự.', khachhangError);
         isValid = false;
     }
 
@@ -100,8 +101,8 @@ function validateForm() {
     } else if (!validateName(nhanvienValue)) {
         showFieldError(nhanvienInput, 'Tên nhân viên không được chứa số hoặc ký tự đặc biệt.', nhanvienError);
         isValid = false;
-    } else if (nhanvienValue.length > 30) {
-        showFieldError(nhanvienInput, 'Tên nhân viên không được quá 30 ký tự.', nhanvienError);
+    } else if (nhanvienValue.length > 15) {
+        showFieldError(nhanvienInput, 'Tên nhân viên không được quá 15 ký tự.', nhanvienError);
         isValid = false;
     }
     
@@ -123,6 +124,7 @@ openModalBtn.addEventListener('click', () => {
     document.getElementById('addBtn').textContent = 'Thêm';
     addModal.style.display = "block";
     
+
     clearFieldError(khachhangInput, khachhangError);
     clearFieldError(nhanvienInput, nhanvienError);
     clearFieldError(sotienInput, sotienError);
@@ -136,7 +138,6 @@ cancelBtn.addEventListener('click', () => {
     addModal.style.display = "none";
 });
 
-
 closeDetailModalBtn.addEventListener('click', () => {
     detailModal.style.display = "none";
 });
@@ -144,7 +145,6 @@ closeDetailModalBtn.addEventListener('click', () => {
 closeDetailBtn.addEventListener('click', () => {
     detailModal.style.display = "none";
 });
-
 
 window.addEventListener('click', (event) => {
     if (event.target === addModal) {
